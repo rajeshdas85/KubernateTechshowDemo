@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernatetechshowdemodeployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kubernatetechshowdemopods
+  template:
+    metadata:
+      labels:
+        app: kubernatetechshowdemopods
+    spec:
+      containers:
+      - name: kubernatetechshowdemopodscontainer
+        image: rajeshdas17062019/kubernatetechshowdemo:V1.0.0.0
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
